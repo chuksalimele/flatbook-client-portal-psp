@@ -17,7 +17,7 @@
 */
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 // core components
 import Portal from "layouts/Portal.js";
@@ -28,8 +28,7 @@ import "assets/css/portal.css?v=1.10.0";
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route path="/client/portal" component={Portal} />
-      <Redirect from="/" to="/client/portal/dashboard" />
+      <Route path="/" component={Portal} />
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")
