@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import PageContent from "views/PageContent/PageContent.js";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
@@ -24,10 +25,6 @@ const useStyles = makeStyles(styles);
 const MainContent = () => {
   const classes = useStyles();
 
-  const handleItemClick = (action) => {
-    console.log(action);
-  };
-
   return (
     <Grid container spacing={2}>
       {dashboardItems.map((item, index) => (
@@ -41,16 +38,17 @@ const MainContent = () => {
             </CardBody>
 
             <CardFooter stats>
-              <Button
-                variant="contained"
-                color="secondary"
-                className={classes.button}
-                style={{ width: "100%" }}
-                endIcon={<Icon>{item.btnIcon}</Icon>}
-                onClick={() => handleItemClick(item.action)}
-              >
-                {item.action}
-              </Button>
+              <Link to={item.url}>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  className={classes.button}
+                  style={{ width: "100%" }}
+                  endIcon={<Icon>{item.btnIcon}</Icon>}
+                >
+                  {item.action}
+                </Button>
+              </Link>
             </CardFooter>
           </Card>
         </Grid>

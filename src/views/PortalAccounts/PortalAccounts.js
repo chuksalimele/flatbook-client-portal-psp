@@ -1,4 +1,5 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 // @material-ui/core
 
 // @material-ui/icons
@@ -13,7 +14,7 @@ import WithdrawalForm from "./tabs/WithdrawalForm.js";
 import DepositForm from "./tabs/DepositForm.js";
 import TransferForm from "./tabs/TransferForm.js";
 import AccountHistory from "./tabs/AccountHistory.js";
-import CustomTabs from "components/CustomTabs/CustomTabs.js";
+import PortalCustomTabs from "components/CustomTabs/PortalCustomTabs.js";
 import PageContent from "views/PageContent/PageContent.js";
 import user from "models/user.js";
 //import { bugs, website, server } from "variables/general.js";
@@ -31,10 +32,30 @@ import {
 const AccountNumber = user.SelectedAccountNumber;
 
 function MainContent() {
+  const { tab } = useParams();
+  console.log(tab);
+  let selectedTabIndex = 0;
+  if (tab == "details") {
+    selectedTabIndex = 0;
+  }
+  if (tab == "withdraw") {
+    selectedTabIndex = 1;
+  }
+  if (tab == "deposit") {
+    selectedTabIndex = 2;
+  }
+  if (tab == "transfer") {
+    selectedTabIndex = 3;
+  }
+  if (tab == "history") {
+    selectedTabIndex = 4;
+  }
+
   return (
     <Grid container item xs={12} sm={12} md={12}>
       <Grid item>
-        <CustomTabs
+        <PortalCustomTabs
+          selectedTabIndex={selectedTabIndex}
           title={AccountNumber}
           headerColor="primary"
           tabs={[

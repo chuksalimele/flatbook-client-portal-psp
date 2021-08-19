@@ -89,7 +89,7 @@ const dashboardRoutes = [
     layout: "/client/portal",
   },
   {
-    path: "/accounts",
+    path: "/accounts/:tab",
     name: "Accounts",
     rtlName: "لوحة القيادة",
     icon: AccountCircle,

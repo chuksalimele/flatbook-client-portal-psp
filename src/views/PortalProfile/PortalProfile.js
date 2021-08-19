@@ -1,5 +1,5 @@
 import React from "react";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PageContent from "views/PageContent/PageContent.js";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
@@ -27,10 +27,6 @@ import avatar from "assets/img/faces/MY PHOTO.jpg";
 
 const MainContent = () => {
   //const classes = useStyles();
-
-  const handleEditProfileClick = () => {
-    console.log("handleEditProfileClick");
-  };
 
   return (
     <Grid container spacing={2}>
@@ -117,14 +113,15 @@ const MainContent = () => {
           </CardBody>
 
           <CardFooter stats>
-            <Button
-              color="primary"
-              href="/client/portal/edit_profile"
-              onClick={handleEditProfileClick}
-              endIcon={<Icon>edit</Icon>}
-            >
-              Edit Profile
-            </Button>
+            <Link to="/client/portal/edit_profile">
+              <Button
+                variant="contained"
+                color="primary"
+                endIcon={<Icon>edit</Icon>}
+              >
+                Edit Profile
+              </Button>
+            </Link>
           </CardFooter>
         </Card>
       </Grid>
