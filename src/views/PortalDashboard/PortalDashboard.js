@@ -38,7 +38,7 @@ const MainContent = () => {
             </CardBody>
 
             <CardFooter stats>
-              <Link to={item.url}>
+              <Link to={item.url} style={{ width: "100%" }}>
                 <Button
                   variant="contained"
                   color="secondary"
